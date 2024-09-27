@@ -1,0 +1,42 @@
+let numbers = [23, 54, 12, 7, 90];
+
+function addNumber(array, number) {
+    array.push(number);
+}
+
+function removeNumber(array, number) {
+    const index = array.indexOf(number);
+    if (index !== -1) {
+        array.splice(index, 1);
+    }
+}
+
+function sortNumbers(array) {
+    return array.slice().sort((a, b) => a - b);
+}
+
+function calculateSum(array) {
+    return array.reduce((sum, num) => sum + num, 0);
+}
+
+function calculateAverage(array) {
+    if (array.length === 0) return 0;
+    const sum = calculateSum(array);
+    return sum / array.length;
+}
+
+console.log("Initial array:", numbers);
+addNumber(numbers, 15);
+console.log("Array after adding 15:", numbers);
+
+removeNumber(numbers, 5);  // 5 is not in the array, so no change here
+console.log("Array after trying to remove 5:", numbers);
+
+const sortedNumbers = sortNumbers(numbers);
+console.log("Sorted array:", sortedNumbers);
+
+const sum = calculateSum(numbers);
+console.log("Sum of array elements:", sum);
+
+const average = calculateAverage(numbers);
+console.log("Average of array elements:", average);
